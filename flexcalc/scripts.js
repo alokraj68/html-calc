@@ -1,5 +1,5 @@
 "use strict;"
-const keys = document.querySelectorAll('#flexbox span');
+const keys = document.querySelectorAll('#calc span');
 const operators = ['+', '-', 'x', '÷'];
 let decimalAdded = false;
 
