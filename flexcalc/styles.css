@@ -59,6 +59,7 @@ body {
     border-radius: 50%;
     transition: 0.1s all ease-in-out;
     border: 1px solid var(--soft-high-light);
+    cursor: pointer;
 }
 
 .neumorphic:hover {
