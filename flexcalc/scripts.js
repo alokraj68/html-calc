@@ -52,16 +52,14 @@ for (const element of keys) {
         // prevent page jumps
         e.preventDefault();
     }
+
+    element.onmouseover = function (e) {
+        const color = "rgba(" + randomNumber() + "," + randomNumber() + "," + randomNumber() + ",0.2)";
+        element.style.background = color;
+    };
+    element.onmouseout = function (e) {
+        element.style.background = "";
+    };
 }
 
-// const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-
-// function switchTheme(e) {
-//     if (e.target.checked) {
-//         document.documentElement.setAttribute('data-theme', 'dark');
-//     } else {
-//         document.documentElement.setAttribute('data-theme', 'light');
-//     }
-// }
-
-// toggleSwitch.addEventListener('change', switchTheme, false);
+const randomNumber = () => { return Math.random() * 256 | 0; }
