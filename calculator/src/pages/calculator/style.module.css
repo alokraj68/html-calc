@@ -83,6 +83,10 @@ body {
     padding: 50px 40px 40px 40px;
 }
 
+.calculatorBackground {
+    background-color: white;
+}
+
 .zero {
     width: 140px;
     border-radius: 12px;

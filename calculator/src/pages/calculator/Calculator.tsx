@@ -61,7 +61,7 @@ const Calculator = () => {
     }
 
     return (
-        <>
+        <div className={styles.calculatorBackground}>
             <div className={styles.calculator} id='calc' >
                 <div className={styles.flexbox}>
                     <div className={styles.display} ref={displayRef} >{displayValue}</div>
@@ -86,7 +86,7 @@ const Calculator = () => {
                     <span onClick={(event) => calc(event)} onMouseOver={(event) => mouseOverEvent(event)} onMouseOut={(event) => { mouseOutEvent(event) }} className={styles.neumorphic}>=</span>
                 </div >
             </div >
-        </>
+        </div>
     )
 };
 
