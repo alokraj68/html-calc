@@ -6,7 +6,7 @@ import Layout from './pages/layout/Layout';
 import NoPage from "./pages/nopage/NoPage";
 function App() {
   return (
-    <div className="App">
+    <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -16,7 +16,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </div>
+    </>
   );
 }
 
