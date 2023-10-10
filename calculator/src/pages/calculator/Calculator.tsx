@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import styles from './style.module.css';
+import styles from './calculator.module.css';
 const Calculator = () => {
     const operators = ['+', '-', 'x', '÷'];
     let decimalAdded = false;

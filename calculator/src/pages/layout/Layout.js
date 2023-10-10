@@ -1,6 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
-import styles from './style.module.css';
-
+import styles from './layout.module.css';
+import { NavLink } from "react-router-dom";
 const Layout = () => {
 
     return (
@@ -8,14 +8,27 @@ const Layout = () => {
             <nav className={styles.navStyling}>
                 <ul className={styles.ul}>
                     <li className={styles.li}>
-                        <Link to="/" className={styles.a}>Home</Link>
+                        {/* <Link to="/" className={styles.a} >Home</Link> */}
+                        <NavLink
+                            to="/"
+                            className={({ isActive, isPending }) =>
+                                isPending ? `${styles.a} pending` : isActive ? `${styles.a} ${styles.active}` : `${styles.a}`
+                            }
+                        >
+                            Home
+                        </NavLink>
                     </li>
                     <li className={styles.li}>
-                        <Link to="/calculator" className={styles.a}>Calculator</Link>
+                        {/* <Link to="/calculator" className={styles.a} activeClassName={styles.active}>Calculator</Link> */}
+                        <NavLink
+                            to="/calculator"
+                            className={({ isActive, isPending }) =>
+                                isPending ? `${styles.a}` : isActive ? `${styles.a} ${styles.active}` : `${styles.a}`
+                            }
+                        >
+                            Calculator
+                        </NavLink>
                     </li>
-                    {/* <li>
-                        <Link to="/contact">Contact</Link>
-                    </li> */}
                 </ul>
             </nav>
 
