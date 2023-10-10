@@ -4,16 +4,11 @@ const Calculator = () => {
     const operators = ['+', '-', 'x', '÷'];
     let decimalAdded = false;
     const displayRef = useRef<HTMLInputElement>(null);
-
-    const [displayValue, setDisplayValue] = useState<string>("0")
-
+    const [displayValue, setDisplayValue] = useState<string>("0");
     const calc = (event: any) => {
-        // let input = document.querySelector('.display');
-        // let inputVal = displayRef.innerHTML;
         let btnVal = event.target.innerHTML;
 
         if (btnVal == 'C') {
-            // input?.innerHTML = '';
             setDisplayValue("0");
             decimalAdded = false;
         } else if (btnVal == '=') {
