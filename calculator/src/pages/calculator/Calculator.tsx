@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
+import soundOff from '../../assets/sound_off.png';
+import soundOn from '../../assets/sound_on.png';
 import styles from './calculator.module.css';
-const soundOn = require('../../assets/sound_on.png');
-const soundOff = require('../../assets/sound_off.png');
 const tickSound = require('../../assets/tick.mp3');
 const Calculator = () => {
     const [soundState, setSoundState] = useState(false);
