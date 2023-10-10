@@ -1,6 +1,10 @@
 import { useRef, useState } from 'react';
 import styles from './calculator.module.css';
+const soundOn = require('../../assets/sound_on.png');
+const soundOff = require('../../assets/sound_off.png');
+const tickSound = require('../../assets/tick.mp3');
 const Calculator = () => {
+    const [soundState, setSoundState] = useState(false);
     const operators = ['+', '-', 'x', '÷'];
     let decimalAdded = false;
     const displayRef = useRef<HTMLInputElement>(null);
@@ -53,6 +57,14 @@ const Calculator = () => {
     const randomNumber = () => { return Math.random() * 256 | 0; }
 
     const mouseOverEvent = (event: any) => {
+        if (soundState) {
+            try {
+                const audio = new Audio(tickSound);
+                audio.play();
+            } catch (err) {
+                console.log("🚀 ~ file: Calculator.tsx:60 ~ mouseOverEvent ~ err:", err);
+            }
+        }
         const color = "rgba(" + randomNumber() + "," + randomNumber() + "," + randomNumber() + ",0.2)";
         event.target.style.background = color;
     };
@@ -60,10 +72,28 @@ const Calculator = () => {
         event.target.style.background = "";
     }
 
+    const toggleSound = () => {
+        setSoundState(!soundState);
+    }
+
     return (
         <div className={styles.calculatorBackground}>
             <div className={styles.calculator} id='calc' >
                 <div className={styles.flexbox}>
+                    <div className={[styles.flexbox, styles.rowReverse].join(" ")}>
+                        <span className={styles.soundButton}>
+                            {soundState ? (
+                                <>
+                                    <img src={soundOn} width="30" height="30" onClick={toggleSound} alt="sound on" />
+                                </>
+                            ) : (
+                                <>
+                                    <img src={soundOff} width="30" height="30" onClick={toggleSound} alt="sound off" />
+                                </>
+                            )}
+                        </span>
+
+                    </div>
                     <div className={styles.display} ref={displayRef} >{displayValue}</div>
                     <span onClick={(event) => calc(event)} onMouseOver={(event) => mouseOverEvent(event)} onMouseOut={(event) => { mouseOutEvent(event) }} className={styles.neumorphic}>C</span>
                     <span onClick={(event) => calc(event)} onMouseOver={(event) => mouseOverEvent(event)} onMouseOut={(event) => { mouseOutEvent(event) }} className={styles.neumorphic}>+/-</span>

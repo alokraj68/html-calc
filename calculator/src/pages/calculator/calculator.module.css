@@ -115,3 +115,12 @@ body {
     transition: 0.4s;
     border: 2px solid rgba(255, 255, 255, 0.2);
 }
+
+.soundButton {
+    background-image: url("../../assets/sound_on.png");
+}
+
+.rowReverse {
+    flex-direction: row-reverse;
+    cursor: pointer;
+}

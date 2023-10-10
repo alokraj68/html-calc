@@ -31,7 +31,7 @@
 
   .li:hover:after {
       width: 100%;
-      background: #7161e8;
+      background: #04AA6D;
   }
 
   .li:after {
